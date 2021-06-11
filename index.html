@@ -14,7 +14,7 @@
     <meta http-equiv="cleartype" content="on">
     <meta name="full-screen" content="yes">
     <meta name="x5-fullscreen" content="true">
-    <link rel="shortcut icon" type="images/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" type="images/x-icon" href="./favicon.ico">
     <title>For the Love of Toby</title>
     <script src="./jquery-2.2.4.js"></script>
     <style>
@@ -139,13 +139,21 @@
     </audio>
 </div>
 <script>
+    //JS绑定自动播放（操作window时，播放音乐）
+    $(window).one('touchstart', function () {
+        $('audio')[0].play();
+    })
+
+    //微信下兼容处理
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        $('audio')[0].play();
+    }, false);
     new WRITE({
         title: '亲爱的小花花：',
         box: '.text-box',
         signature: 'Toby',
-        date: '2021-06-11',
+        date: '2021-06-12',
         text: '\n我听见雨滴落在青青草地，我听见远方下课钟声响起，可是我没有听见你的声音，认真呼唤我姓名。\n爱上你的时候还不懂感情，离别了才觉得刻骨铭心，为什么没有发现遇见了你，是生命最好的事情。也许当时忙着微笑和哭泣，忙着追逐天空中的流星。\n人理所当然的忘记，是谁风里雨里一直默默守护在原地。\n原来你是我最想留住的幸运，原来我们和爱情曾经靠得那么近，那为我对抗世界的决定，那陪我淋的雨，一幕幕都是你，一尘不染的真心。\n与你相遇好幸运，可我已失去为你泪流满面的权利，但愿在我看不到的天际，你张开了双翼，遇见你的注定 (oh--)，她会有多幸运。\n青春是段跌跌撞撞的旅行，拥有着后知后觉的美丽，来不及感谢是你给我勇气，让我能做回我自己，也许当时忙着微笑和哭泣，忙着追逐天空中的流星，人理所当然的忘记，是谁风里雨里一直默默守护在原地。\n原来你是我最想留住的幸运，原来我们和爱情曾经靠得那么近，那为我对抗世界的决定，那陪我淋的雨，一幕幕都是你，一尘不染的真心，与你相遇好幸运，可我已失去为你泪流满面的权利，但愿在我看不到的天际，你张开了双翼，遇见你的注定 (oh--)，她会有多幸运。'
-        // text: '\n我听见'
     });
 </script>
 </body>
