@@ -1,6 +1,6 @@
 ## love
 ```
 
-Just for love
+For the Love of Toby
 
 ```
