@@ -1,3 +1,15 @@
+$(window).one('touchstart', function () {
+  var _this = this
+  var audio = $('audio')[0]
+  if (!_this.audioStarted) {
+    audio.play().then(() => {
+      _this.audioStarted = true;
+    }).catch(e => {
+      console.error("Play error:", e); // 捕获 NotAllowedError
+    });
+  }
+})
+
 /**
  * boxClass: 放置容器class
  * textArray：文本数组
