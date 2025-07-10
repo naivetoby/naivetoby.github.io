@@ -1,162 +1,204 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="description">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,viewport-fit=cover"/>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <meta http-equiv="cleartype" content="on">
-    <meta name="full-screen" content="yes">
-    <meta name="x5-fullscreen" content="true">
-    <link rel="shortcut icon" type="images/x-icon" href="./favicon.ico">
-    <title>For the Love of Toby</title>
-    <script src="./jquery-2.2.4.js"></script>
-    <style>
-        html {
-            width: 100%;
-            height: 100%;
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-            background-image: url('background.png');
-        }
+  <meta charset="UTF-8">
+  <meta name="description">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="full-screen" content="yes">
+  <meta name="x5-fullscreen" content="true">
+  <link rel="shortcut icon" type="images/x-icon" href="./favicon.ico">
+  <title>For the Love of Toby</title>
+  <script src="./jquery-2.2.4.js"></script>
+  <style>
+    html {
+      width: 100%;
+      height: 100%;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      background-image: url('background.png');
+    }
 
-        body {
-            width: 100%;
-            height: 100%;
-        }
+    body {
+      width: 100%;
+      height: 100%;
+    }
 
-        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, legend, input, textarea, p, th, td {
-            margin: 0;
-            padding: 0
-        }
+    body,
+    div,
+    dl,
+    dt,
+    dd,
+    ul,
+    ol,
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    form,
+    legend,
+    input,
+    textarea,
+    p,
+    th,
+    td {
+      margin: 0;
+      padding: 0
+    }
 
-        a, input, button, select, textarea {
-            outline: 0
-        }
+    a,
+    input,
+    button,
+    select,
+    textarea {
+      outline: 0
+    }
 
-        a, a:visited, a:hover, a:active {
-            color: #B3ADB0;
-        }
+    a,
+    a:visited,
+    a:hover,
+    a:active {
+      color: #B3ADB0;
+    }
 
-        img {
-            border: 0;
-            vertical-align: middle
-        }
+    img {
+      border: 0;
+      vertical-align: middle
+    }
 
-        em, i {
-            font-style: normal
-        }
+    em,
+    i {
+      font-style: normal
+    }
 
-        textarea {
-            resize: none
-        }
+    textarea {
+      resize: none
+    }
 
-        table {
-            border-collapse: collapse
-        }
+    table {
+      border-collapse: collapse
+    }
 
-        body {
-            font: 16px/1.5 -apple-system-font, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
-        }
+    body {
+      font: 16px/1.5 -apple-system-font, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+    }
 
-        a, a:hover {
-            text-decoration: none;
-        }
+    a,
+    a:hover {
+      text-decoration: none;
+    }
 
-        ol, ul {
-            list-style: none
-        }
+    ol,
+    ul {
+      list-style: none
+    }
 
-        h1, h2, h3, h4, h5 {
-            font-size: inherit;
-            font-weight: normal
-        }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-size: inherit;
+      font-weight: normal
+    }
 
-        input, label, select {
-            vertical-align: middle;
-        }
+    input,
+    label,
+    select {
+      vertical-align: middle;
+    }
 
-        button {
-            cursor: pointer;
-        }
+    button {
+      cursor: pointer;
+    }
 
-        div.text-box {
-            padding: 20px 30px;
-            max-width: 660px;
-        }
+    div.text-box {
+      padding: 20px 30px;
+      max-width: 660px;
+    }
 
-        div.text-box p.write-h1 {
-            text-indent: 0;
-            line-height: 2em;
-        }
+    div.text-box p.write-h1 {
+      text-indent: 0;
+      line-height: 2em;
+    }
 
-        div.text-box p {
-            text-indent: 2em;
-            line-height: 2em;
-        }
+    div.text-box p {
+      text-indent: 2em;
+      line-height: 2em;
+    }
 
-        div.text-box .write-signature {
-            width: 100%;
-            float: right;
-            text-align: right;
-            clear: right;
-        }
+    div.text-box .write-signature {
+      width: 100%;
+      float: right;
+      text-align: right;
+      clear: right;
+    }
 
-        div.container span.cursor {
-            border-bottom: 2px solid #333;
-            animation: twinkle 1s infinite;
-        }
+    div.container span.cursor {
+      border-bottom: 2px solid #333;
+      animation: twinkle 1s infinite;
+    }
 
-        @keyframes twinkle {
-            from {
-                border-color: #333;
-            }
-            50% {
-                border-color: #333;
-            }
-            50.01% {
-                border-color: transparent;
-            }
-            to {
-                border-color: transparent;
-            }
-        }
-    </style>
-    <script src="./write.js"></script>
+    @keyframes twinkle {
+      from {
+        border-color: #333;
+      }
+
+      50% {
+        border-color: #333;
+      }
+
+      50.01% {
+        border-color: transparent;
+      }
+
+      to {
+        border-color: transparent;
+      }
+    }
+  </style>
+  <script src="./write.js"></script>
 </head>
+
 <body>
-<div class="container">
+  <div class="container">
     <div class="text-box"></div>
-    <audio loop>
-        <source src="./6865.wav" type="audio/ogg">
-        <source src="./6865.wav" type="audio/mpeg">
+    <audio preload="auto" playsinline>
+      <source src="./6865.wav" type="audio/wav">
     </audio>
-</div>
-<script>
+  </div>
+  <script>
     //JS绑定自动播放（操作window时，播放音乐）
     $(window).one('touchstart', function () {
-        $('audio')[0].play();
+      $('audio')[0].play();
     })
 
     //微信下兼容处理
     document.addEventListener("WeixinJSBridgeReady", function () {
-        $('audio')[0].play();
+      $('audio')[0].play();
     }, false);
+
     new WRITE({
-        title: '亲爱的小花：',
-        box: '.text-box',
-        signature: 'Toby',
-        date: '2021-06-18',
-        text: '\n在人生已经过去的很多年里，我们没有遇到过对方，我们在各自不同的地方，成长、经历、遇到不同的人，经过不同的事，慢慢长大，慢慢懂得珍惜。我们遇到对方，这是不是我们遇到对方最好的时机呢，我不知道，我不知道将来的某一天我们会不会就这么走散呢，我也不知道，我只知道，在和你在一起的每一天里，我都在感谢上天让我遇到你。\n' +
-			'我是个不会表达的人，更多的时间里我会写，但是我说不出口，我只想让你知道，在心里我是多么多么在乎，多么多么害怕失去你，原谅我的幼稚，原谅我时常的不成熟，我想我会用我此后的每一天，用我渐渐成熟的时间，来更好地爱你，来让你知道我有多么在乎你。\n' +
-			'我们身处的这个时代已经足够现实，因为金钱，因为物质，因为距离，因为各种各样匪夷所思的东西我们会生生错过那个彼此珍惜的人，变成一辈子的遗憾，如果这个世界上还有一样东西我们可以把握，那么就在我们彼此相处的时间，用足够的真心，用足够的话语告诉对方，我是真的真的非常在乎你。哪怕降低自尊，哪怕会有风险被打击自信，但足够好过因为误会而不言不语，我们能够相遇已经非常神奇，我只想告诉你，我再也不想错过你。'
+      title: '亲爱的小花：',
+      box: '.text-box',
+      signature: 'Toby',
+      date: '2021-06-18',
+      text: '\n在人生已经过去的很多年里，我们没有遇到过对方，我们在各自不同的地方，成长、经历、遇到不同的人，经过不同的事，慢慢长大，慢慢懂得珍惜。我们遇到对方，这是不是我们遇到对方最好的时机呢，我不知道，我不知道将来的某一天我们会不会就这么走散呢，我也不知道，我只知道，在和你在一起的每一天里，我都在感谢上天让我遇到你。\n' +
+        '我是个不会表达的人，更多的时间里我会写，但是我说不出口，我只想让你知道，在心里我是多么多么在乎，多么多么害怕失去你，原谅我的幼稚，原谅我时常的不成熟，我想我会用我此后的每一天，用我渐渐成熟的时间，来更好地爱你，来让你知道我有多么在乎你。\n' +
+        '我们身处的这个时代已经足够现实，因为金钱，因为物质，因为距离，因为各种各样匪夷所思的东西我们会生生错过那个彼此珍惜的人，变成一辈子的遗憾，如果这个世界上还有一样东西我们可以把握，那么就在我们彼此相处的时间，用足够的真心，用足够的话语告诉对方，我是真的真的非常在乎你。哪怕降低自尊，哪怕会有风险被打击自信，但足够好过因为误会而不言不语，我们能够相遇已经非常神奇，我只想告诉你，我再也不想错过你。'
     });
-</script>
+  </script>
 </body>
+
 </html>
