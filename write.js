@@ -89,7 +89,7 @@ WRITE.prototype.addText = function (text) {
     var audio = $('audio')[0]
     var timer = window.setInterval(function () {
       if (_this.textIndex < length && (text[_this.textIndex] == ',' || text[_this.textIndex] == '，' || text[_this.textIndex] == '.') || text[_this.textIndex] == '。') {
-        audio.volume = 0.001;
+        audio.muted = true;
         clearInterval(timer)
         timer = null
         $cursor.before(text[_this.textIndex])
@@ -99,17 +99,19 @@ WRITE.prototype.addText = function (text) {
           _this.addText(text)
         }, 1300)
       } else if (_this.textIndex < length) {
-        audio.volume = 1;
+        audio.muted = false;
         if (!_this.audioStarted) {
           audio.play().then(() => {
             _this.audioStarted = true;
-          }).catch(e => console.error("Play error:", e));
+          }).catch(e => {
+            console.error("Play error:", e); // 捕获 NotAllowedError
+          });
         }
         $cursor.before(text[_this.textIndex])
         $('.text-box>p:last-child')[0].scrollIntoView();
         _this.textIndex++
       } else {
-        audio.volume = 0.001;
+        audio.muted = true;
         clearInterval(timer)
         timer = null
         _this.paragraphIndex++
