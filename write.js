@@ -25,6 +25,7 @@ function WRITE(obj) {
   this.textIndex = 0
   this.isSignatureEnd = false
   this.isDateEnd = false
+  this.audioStarted = false;
   if (this.title && this.title != '') {
     this.newTitle()
   } else {
@@ -88,7 +89,7 @@ WRITE.prototype.addText = function (text) {
     var audio = $('audio')[0]
     var timer = window.setInterval(function () {
       if (_this.textIndex < length && (text[_this.textIndex] == ',' || text[_this.textIndex] == '，' || text[_this.textIndex] == '.') || text[_this.textIndex] == '。') {
-        audio.pause()
+        audio.volume = 0.001;
         clearInterval(timer)
         timer = null
         $cursor.before(text[_this.textIndex])
@@ -98,12 +99,17 @@ WRITE.prototype.addText = function (text) {
           _this.addText(text)
         }, 1300)
       } else if (_this.textIndex < length) {
-        audio.play()
+        audio.volume = 1;
+        if (!_this.audioStarted) {
+          audio.play().then(() => {
+            _this.audioStarted = true;
+          }).catch(e => console.error("Play error:", e));
+        }
         $cursor.before(text[_this.textIndex])
         $('.text-box>p:last-child')[0].scrollIntoView();
         _this.textIndex++
       } else {
-        audio.pause()
+        audio.volume = 0.001;
         clearInterval(timer)
         timer = null
         _this.paragraphIndex++

@@ -174,21 +174,11 @@
 <body>
   <div class="container">
     <div class="text-box"></div>
-    <audio preload="auto" playsinline>
+    <audio preload="auto" playsinline loop>
       <source src="./6865.wav" type="audio/wav">
     </audio>
   </div>
   <script>
-    //JS绑定自动播放（操作window时，播放音乐）
-    $(window).one('touchstart', function () {
-      $('audio')[0].play();
-    })
-
-    //微信下兼容处理
-    document.addEventListener("WeixinJSBridgeReady", function () {
-      $('audio')[0].play();
-    }, false);
-
     new WRITE({
       title: '亲爱的小花：',
       box: '.text-box',
