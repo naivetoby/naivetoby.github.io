@@ -279,16 +279,34 @@
       gap: 5px;
       color: var(--muted);
       font-size: 13px;
+      min-width: 0;
     }
 
     input, select {
       width: 100%;
+      max-width: 100%;
       border: 1px solid var(--line);
       border-radius: 6px;
       background: #fff;
       color: var(--ink);
       padding: 10px 11px;
       min-height: 42px;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input[type="time"] {
+      display: block;
+      min-width: 0;
+      text-align: left;
+    }
+
+    input[type="time"]::-webkit-date-and-time-value {
+      text-align: left;
+    }
+
+    input[type="time"]::-webkit-calendar-picker-indicator {
+      margin-left: 0;
     }
 
     table {
@@ -519,6 +537,11 @@
         font-size: 16px;
       }
 
+      input[type="time"] {
+        min-width: 0;
+        width: 100%;
+      }
+
       .btn {
         min-height: 48px;
         padding: 11px 12px;
@@ -640,7 +663,6 @@
         </div>
         <div class="header-actions">
           <button class="btn" id="exportBtn">导出数据</button>
-          <button class="btn danger" id="resetBtn">恢复初始</button>
         </div>
       </header>
 
@@ -1374,13 +1396,6 @@
       link.download = "cat-weight-tracker-data.json";
       link.click();
       URL.revokeObjectURL(link.href);
-    });
-
-    document.querySelector("#resetBtn").addEventListener("click", () => {
-      if (!confirm("恢复初始数据会覆盖当前页面里的本地记录。确定恢复吗？")) return;
-      state = clone(defaultState);
-      saveState();
-      renderAll();
     });
 
     const now = new Date();
